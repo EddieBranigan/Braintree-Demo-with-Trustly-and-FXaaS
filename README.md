@@ -1,4 +1,4 @@
-# BT - Iris Demo
+# Braintree Demo with Trustly & FXaaS
 
 A small Express demo app showing a Braintree checkout flow: an
 order selection page, a payment page (Credit/Debit Card, Apple Pay, Google
