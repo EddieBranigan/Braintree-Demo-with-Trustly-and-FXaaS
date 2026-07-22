@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Registration</title>
+    <link rel="stylesheet" href="/style.css">
+    <script defer src="/selectionScript.js"></script>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="site-logo-text">MERCHANT</div>
+    </header>
+
+    <main class="checkout-main">
+
+        <div class="step-header">
+            <span class="step-title">Your Payment</span>
+        </div>
+
+        <div class="step-card">
+            <div class="step-card-body">
+                <div class="order-item">
+                    <div class="order-item-info">
+                        <span class="order-item-name">Services</span>
+                    </div>
+                    <div class="order-item-qty">x1</div>
+                    <div class="order-item-price">£300.00</div>
+                </div>
+                <div class="order-item">
+                    <div class="order-item-info">
+                        <span class="order-item-name">Transportation</span>
+                    </div>
+                    <div class="order-item-qty">x1</div>
+                    <div class="order-item-price">£50.00</div>
+                </div>
+                <div class="order-item">
+                    <div class="order-item-info">
+                        <span class="order-item-name">Social Events</span>
+                    </div>
+                    <div class="order-item-qty">x1</div>
+                    <div class="order-item-price">£100.00</div>
+                </div>
+            </div>
+            <div class="order-totals">
+                <div class="order-total-row order-total-row--main">
+                    <span class="order-total-label order-total-label--main">Total</span>
+                    <span class="order-total-value order-total-value--main" id="totalDisplay"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Proceed -->
+        <button class="proceed-btn" id="proceedBtn">Proceed to Payment</button>
+
+
+    </main>
+
+</body>
+
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+
+    <script src="https://js.braintreegateway.com/web/3.142.0/js/client.min.js"></script>
+    <script src="https://js.braintreegateway.com/web/3.142.0/js/data-collector.min.js"></script>
+    <script src="https://js.braintreegateway.com/web/3.142.0/js/hosted-fields.min.js"></script>
+    <script src="https://js.braintreegateway.com/web/3.142.0/js/three-d-secure.min.js"></script>
+    <script src="https://js.braintreegateway.com/web/3.142.0/js/paypal-checkout.min.js"></script>
+    <script src="https://js.braintreegateway.com/web/3.142.0/js/local-payment.min.js"></script>
+    <script src="https://js.braintreegateway.com/web/3.142.0/js/apple-pay.min.js"></script>
+    <script defer src="/paymentScript.js"></script>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="site-logo-text">MERCHANT</div>
+    </header>
+
+    <div class="summary-bar" id="paymentSummaryBar">
+        Paying <strong id="summaryAmount"></strong> for <span class="product-name">Canteen Services, Transportation &amp; Trips, Socs &amp; Social</span>
+        &nbsp;·&nbsp;
+        <a href="/">&#8592; Edit order</a>
+    </div>
+
+    <main class="checkout-main">
+
+        <!-- Step header -->
+        <div class="step-header">
+            <span class="step-title">Please select your payment method:</span>
+        </div>
+
+        <!-- Payment method accordion -->
+        <div class="payment-card">
+            <div class="accordion">
+
+                <!-- Credit / Debit Card -->
+                <div class="accordion-item">
+                    <input type="radio" name="accordion" id="acc-card" class="accordion-toggle">
+                    <label class="accordion-header" for="acc-card">Credit / Debit Card</label>
+                    <div class="accordion-body">
+                        <form action="javascript:void(0)" method="post" id="cardForm">
+                            <div class="field-group">
+                                <label class="field-label" for="hfCardNumber">Card Number</label>
+                                <div id="hfCardNumber" class="hosted-field"></div>
+                            </div>
+                            <div class="field-group">
+                                <label class="field-label" for="hfExpiry">Expiry Date</label>
+                                <div id="hfExpiry" class="hosted-field"></div>
+                            </div>
+                            <div class="field-group">
+                                <label class="field-label" for="hfCvv">Security Code (CVV)</label>
+                                <div id="hfCvv" class="hosted-field"></div>
+                            </div>
+                            <div class="btn-row">
+                                <input type="submit" class="btn btn-submit" value="SUBMIT" id="submit">
+                                <button type="button" class="btn btn-cancel">CANCEL</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- PayPal
+                <div class="accordion-item">
+                    <input type="radio" name="accordion" id="acc-paypal" class="accordion-toggle">
+                    <label class="accordion-header" for="acc-paypal">PayPal</label>
+                    <div class="accordion-body">
+                        <div id="paypalButton"></div>
+                    </div>
+                </div> -->
+
+                <!-- Apple Pay -->
+                <div class="accordion-item">
+                    <input type="radio" name="accordion" id="acc-applepay" class="accordion-toggle">
+                    <label class="accordion-header" for="acc-applepay">Apple Pay</label>
+                    <div class="accordion-body">
+                        <div id="applePayButton"></div>
+                    </div>
+                </div>
+
+                <!-- Google Pay -->
+                <div class="accordion-item">
+                    <input type="radio" name="accordion" id="acc-googlepay" class="accordion-toggle">
+                    <label class="accordion-header" for="acc-googlepay">Google Pay</label>
+                    <div class="accordion-body">
+                        <div id="googlePayButton"></div>
+                    </div>
+                </div>
+
+                <!-- Trustly -->
+                <div class="accordion-item">
+                    <input type="radio" name="accordion" id="acc-trustly" class="accordion-toggle">
+                    <label class="accordion-header" for="acc-trustly">Trustly</label>
+                    <div class="accordion-body">
+                        <p style="font-size:14px; color:#555; margin:0 0 16px;">Pay directly from your bank account with Trustly — fast, secure, and no card required.</p>
+                        <div class="field-group">
+                            <label class="field-label" for="trustlyFirstName">First Name <span style="color:#c00;">*</span></label>
+                            <input type="text" id="trustlyFirstName" class="field-input" placeholder="Jane" autocomplete="given-name">
+                        </div>
+                        <div class="field-group">
+                            <label class="field-label" for="trustlyLastName">Last Name <span style="color:#c00;">*</span></label>
+                            <input type="text" id="trustlyLastName" class="field-input" placeholder="Smith" autocomplete="family-name">
+                        </div>
+                        <div class="field-group">
+                            <label class="field-label" for="trustlyPhone">Mobile Number <span style="color:#c00;">*</span></label>
+                            <input type="tel" id="trustlyPhone" class="field-input" placeholder="+44 7700 900000" autocomplete="tel">
+                        </div>
+                        <div class="field-group">
+                            <label class="field-label" for="trustlyEmail">Email Address <span style="color:#c00;">*</span></label>
+                            <input type="email" id="trustlyEmail" class="field-input" placeholder="jane.smith@example.com" autocomplete="email">
+                        </div>
+                        <button type="button" id="trustlyButton" class="btn btn-submit" disabled style="width:100%; padding:14px; font-size:13px; display:flex; align-items:center; justify-content:center; gap:10px; opacity:0.5; cursor:not-allowed; transition:opacity 0.2s;">
+                            <img src="/trustly-logo.svg" alt="" style="height:22px; width:auto; filter:invert(1);">
+                            Pay with Trustly
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Review</title>
+    <link rel="stylesheet" href="/style.css">
+    <script defer src="/reviewScript.js"></script>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="site-logo-text">MERCHANT</div>
+    </header>
+
+    <main class="checkout-main" id="reviewMain" hidden>
+
+        <!-- Status Banner -->
+        <div class="status-banner" id="statusBanner"></div>
+
+        <!-- Page heading -->
+        <h1 class="page-heading">Payment Review</h1>
+
+        <!-- Step 1: Transaction Details -->
+        <div class="step-header">
+            <div class="step-number" id="stepNumTx">1</div>
+            <span class="step-title">Transaction Details</span>
+        </div>
+
+        <div class="review-card">
+            <div class="review-rows">
+                <div class="review-row">
+                    <span class="review-row-label">Transaction ID</span>
+                    <span class="review-row-value review-row-value--mono" id="txId">—</span>
+                </div>
+                <div class="review-row">
+                    <span class="review-row-label">Status</span>
+                    <span class="review-row-value" id="txStatus">—</span>
+                </div>
+                <div class="review-row">
+                    <span class="review-row-label">Amount</span>
+                    <span class="review-row-value review-row-value--amount" id="txAmount">—</span>
+                </div>
+                <div class="review-row">
+                    <span class="review-row-label">Date &amp; Time</span>
+                    <span class="review-row-value" id="txDate">—</span>
+                </div>
+                <div class="review-row">
+                    <span class="review-row-label">Order ID</span>
+                    <span class="review-row-value review-row-value--mono" id="txOrderId">—</span>
+                </div>
+                <div class="review-row">
+                    <span class="review-row-label">Merchant Account</span>
+                    <span class="review-row-value" id="txMerchant">—</span>
+                </div>
+                <div class="review-row">
+                    <span class="review-row-label">Merchant Product</span>
+                    <span class="review-row-value" id="txMerchantProduct">—</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 2: Payment Method -->
+        <div class="step-header">
+            <div class="step-number">2</div>
+            <span class="step-title">Payment Method</span>
+        </div>
+
+        <div class="review-card">
+            <div class="review-rows" id="paymentMethodRows"></div>
+        </div>
+
+        <!-- Step 3: 3DS (card only) -->
+        <div id="tdsSection" hidden>
+            <div class="step-header">
+                <div class="step-number">3</div>
+                <span class="step-title">3D Secure Authentication</span>
+            </div>
+            <div class="review-card">
+                <div class="review-rows" id="tdsRows"></div>
+            </div>
+        </div>
+
+        <!-- Raw Response -->
+        <div class="review-card">
+            <div class="raw-toggle-wrap">
+                <input type="checkbox" class="raw-toggle" id="rawToggle">
+                <label class="raw-toggle-label" for="rawToggle">&#123;&#125; View Raw Server Response</label>
+                <div class="raw-body">
+                    <pre class="raw-pre" id="rawPre"></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="actions-row">
+            <a href="/" class="btn-primary">New Order</a>
+            <a href="/payment" class="btn-outline">Back to Payment</a>
+        </div>
+
+    </main>
+
+    <div id="noData" hidden>
+        <p>No transaction data found. <a href="/" style="color:#555">Start a new order</a>.</p>
+    </div>
+
+</body>
+
+</html>
