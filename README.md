@@ -17,7 +17,7 @@ Pay, Trustly), and a review page showing the transaction result.
 
    ```bash
    git clone <repo-url>
-   cd "BT - Iris Demo"
+   cd "Braintre-Demo-with-Trustly-and-FXaaS"
    npm install
    ```
 
